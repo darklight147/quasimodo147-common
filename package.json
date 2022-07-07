@@ -4,7 +4,8 @@
 	"description": "Shared components for Microservices POC",
 	"main": "build/index.js",
 	"scripts": {
-		"build": "tsc -p ./tsconfig.json"
+		"build": "tsc -p ./tsconfig.json",
+		"prepare": "husky install"
 	},
 	"keywords": [],
 	"author": "github.com/darklight147",

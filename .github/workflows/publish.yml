@@ -13,11 +13,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Publish to npm
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Config GIT
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          npm ci
+
+      - name: Install Deps
+        run: npm ci
+
+      - name: Publish
+        run: |
           npm version patch
           npm publish --access public
         env:

@@ -42,7 +42,7 @@ class JwtService {
 		});
 	}
 
-	private verifyRefreshToken(token: string) {
+	public verifyRefreshToken(token: string) {
 		try {
 			return jwt.verify(token, process.env.JWT_REFRESH_SECRET!, {
 				...this.options,

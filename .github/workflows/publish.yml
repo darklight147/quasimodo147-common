@@ -13,14 +13,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Log in to npm
-        uses: npm/login-action@v2
-        with:
-          username: ${{ secrets.NPM_USERNAME }}
-          password: ${{ secrets.NPM_TOKEN }}
-
       - name: Publish to npm
         run: |
           npm ci
           npm version patch
           npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

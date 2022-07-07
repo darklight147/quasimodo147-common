@@ -32,3 +32,6 @@ var jwt_service_1 = require("./utils/jwt.service");
 Object.defineProperty(exports, "jwtService", { enumerable: true, get: function () { return __importDefault(jwt_service_1).default; } });
 __exportStar(require("./types/Role"), exports);
 __exportStar(require("./types/guest-queues"), exports);
+__exportStar(require("./classes/ExchangePublisherAbstract"), exports);
+__exportStar(require("./classes/ListenerAbstract"), exports);
+__exportStar(require("./classes/PublisherAbstract"), exports);

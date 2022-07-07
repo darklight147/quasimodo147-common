@@ -14,7 +14,7 @@ declare class JwtService {
     sign(payload: Payload): string;
     verify(token: string): Payload | null;
     signRefresh(payload: RefreshPayload): string;
-    private verifyRefreshToken;
+    verifyRefreshToken(token: string): RefreshPayload | null;
     isTokenExpired(token: string): boolean;
 }
 declare const _default: JwtService;

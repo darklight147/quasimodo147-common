@@ -8,6 +8,6 @@ export * from './middlewares/ensure-authenticated';
 export * from './middlewares/current-user';
 export * from './middlewares/ensure-role';
 export * from './middlewares/validate-request';
-export * from './utils/jwt.service';
+export * as jwtService from './utils/jwt.service';
 export * from './types/Role';
 export * from './types/guest-queues';

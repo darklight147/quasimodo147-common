@@ -1,13 +1,13 @@
 {
 	"name": "@quasimodo147/common",
 	"version": "1.0.2",
-	"description": "",
-	"main": "index.js",
+	"description": "Shared components for Microservices POC",
+	"main": "build/index.js",
 	"scripts": {
 		"build": "tsc -p ./tsconfig.json"
 	},
 	"keywords": [],
-	"author": "",
+	"author": "github.com/darklight147",
 	"license": "ISC",
 	"devDependencies": {
 		"@types/cookie-session": "^2.0.44",

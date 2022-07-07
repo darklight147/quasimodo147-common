@@ -26,3 +26,4 @@ __exportStar(require("./middlewares/ensure-role"), exports);
 __exportStar(require("./middlewares/validate-request"), exports);
 __exportStar(require("./utils/jwt.service"), exports);
 __exportStar(require("./types/Role"), exports);
+__exportStar(require("./types/guest-queues"), exports);

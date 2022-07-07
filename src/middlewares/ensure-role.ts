@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import { ForbiddenException } from '../errors/forbidden-error';
 import { UnauthorizedException } from '../errors/unauthorized-error';
-import { ROLE } from '../types/Role';
+import { ROLE } from '../events/types/Role';
 
 export const ensureRole = (roles: ROLE[]) => {
 	return (req: Request, res: Response, next: NextFunction) => {

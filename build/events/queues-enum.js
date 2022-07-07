@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GuestQueues = exports.MailQueues = void 0;
+exports.LogQueues = exports.GuestQueues = exports.MailQueues = void 0;
 var MailQueues;
 (function (MailQueues) {
     MailQueues["REGISTERED"] = "user:registered";
@@ -12,3 +12,7 @@ var GuestQueues;
     GuestQueues["EXPIRE_GUEST_USER"] = "expire:guest-user";
     GuestQueues["GUEST_USER_EXPIRED"] = "guest-user:expired";
 })(GuestQueues = exports.GuestQueues || (exports.GuestQueues = {}));
+var LogQueues;
+(function (LogQueues) {
+    LogQueues["LOG_INFO"] = "log:info";
+})(LogQueues = exports.LogQueues || (exports.LogQueues = {}));

@@ -7,3 +7,6 @@ export declare enum GuestQueues {
     EXPIRE_GUEST_USER = "expire:guest-user",
     GUEST_USER_EXPIRED = "guest-user:expired"
 }
+export declare enum LogQueues {
+    LOG_INFO = "log:info"
+}

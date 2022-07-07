@@ -1,6 +1,6 @@
 {
 	"name": "@quasimodo147/common",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"description": "Shared components for Microservices POC",
 	"main": "build/index.js",
 	"scripts": {

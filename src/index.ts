@@ -16,3 +16,7 @@ export { default as jwtService } from './utils/jwt.service';
 
 export * from './types/Role';
 export * from './types/guest-queues';
+
+export * from './classes/ExchangePublisherAbstract';
+export * from './classes/ListenerAbstract';
+export * from './classes/PublisherAbstract';

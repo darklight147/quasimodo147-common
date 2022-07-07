@@ -1,0 +1,26 @@
+name: Publish Artifact to npm
+
+on:
+  push:
+    branches:
+      - 'master'
+  workflow_dispatch:
+
+jobs:
+  build_push:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Log in to npm
+        uses: npm/login-action@v2
+        with:
+          username: ${{ secrets.NPM_USERNAME }}
+          password: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish to npm
+        run: |
+          npm ci
+          npm version patch
+          npm publish --access public

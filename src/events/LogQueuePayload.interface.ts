@@ -1,4 +1,4 @@
-export interface Payload {
+export interface LogQueuePayload {
 	message: string;
 	level: string;
 	data?: any;

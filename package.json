@@ -1,6 +1,6 @@
 {
 	"name": "@quasimodo147/common",
-	"version": "1.0.21",
+	"version": "1.0.22",
 	"description": "Shared components for Microservices POC",
 	"main": "build/index.js",
 	"repository": "https://github.com/darklight147/quasimodo147-common",

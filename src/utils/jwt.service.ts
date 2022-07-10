@@ -26,13 +26,19 @@ class JwtService {
 			return null;
 		}
 
-		try {
-			return jwt.verify(token, process.env.JWT_SECRET!, {
-				...this.options,
-			}) as Payload;
-		} catch (error) {
-			return null;
-		}
+		return new Promise<Payload>((resolve, reject) => {
+			jwt.verify(
+				token,
+				process.env.JWT_SECRET!,
+				{ ...this.options },
+				(err, payload) => {
+					if (err) {
+						return reject(err);
+					}
+					return resolve(payload as Payload);
+				}
+			);
+		});
 	}
 
 	public signRefresh(payload: RefreshPayload) {

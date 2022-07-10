@@ -7,13 +7,5 @@ export abstract class Publisher<T> {
 
 	constructor(protected connection: Connection) {}
 
-	public async publish(data: T) {
-		this.channel = await this.connection.createChannel();
-
-		await this.channel.assertQueue(this.queueName, { durable: true });
-
-		this.channel.sendToQueue(this.queueName, Buffer.from(JSON.stringify(data)));
-
-		console.log('Published expiration event');
-	}
+	public abstract publish(data: T): Promise<void>;
 }

@@ -15,7 +15,11 @@ class JwtService {
 
 	constructor(private options: jwt.SignOptions & jwt.VerifyOptions) {}
 
-	private asyncVerify(token: string, secret: string, options?: jwt.VerifyOptions) {
+	private asyncVerify(
+		token: string,
+		secret: string,
+		options?: jwt.VerifyOptions
+	) {
 		return new Promise<Payload>((resolve, reject) => {
 			jwt.verify(
 				token,
@@ -30,17 +34,21 @@ class JwtService {
 			);
 		});
 	}
-	private asyncSign(payload: Payload, secret: string, options?: jwt.SignOptions) {
-		return new Promise<Payload>((resolve, reject) => {
+	private asyncSign(
+		payload: Payload | RefreshPayload,
+		secret: string,
+		options?: jwt.SignOptions
+	) {
+		return new Promise<string>((resolve, reject) => {
 			jwt.sign(
 				payload,
 				secret,
-				{ ...this.options,...options },
+				{ ...this.options, ...options },
 				(err, payload) => {
 					if (err) {
 						return reject(err);
 					}
-					return resolve(payload as Payload);
+					return resolve(payload as string);
 				}
 			);
 		});
@@ -55,9 +63,7 @@ class JwtService {
 	}
 
 	public async verify(token: string) {
-		if (!token) {
-			return null;
-		}
+		if (!token) return null;
 
 		try {
 			return await this.asyncVerify(token, process.env.JWT_SECRET!);
@@ -67,17 +73,19 @@ class JwtService {
 	}
 
 	public signRefresh(payload: RefreshPayload) {
-		return jwt.sign(payload, process.env.JWT_REFRESH_SECRET!, {
+		return this.asyncSign(payload, process.env.JWT_REFRESH_SECRET!, {
 			...this.options,
 			expiresIn: this.EXPIRE_REFRESH,
 		});
 	}
 
-	public verifyRefreshToken(token: string) {
+	public async verifyRefreshToken(token: string) {
 		try {
-			return jwt.verify(token, process.env.JWT_REFRESH_SECRET!, {
-				...this.options,
-			}) as RefreshPayload;
+			return (await this.asyncVerify(
+				token,
+				process.env.JWT_REFRESH_SECRET!,
+				this.options
+			)) as RefreshPayload;
 		} catch (error: any) {
 			return null;
 		}

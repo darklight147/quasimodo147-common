@@ -4,5 +4,5 @@ export declare abstract class Publisher<T> {
     abstract queueName: string;
     protected channel: Channel;
     constructor(connection: Connection);
-    publish(data: T): Promise<void>;
+    abstract publish(data: T): Promise<void>;
 }

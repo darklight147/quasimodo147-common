@@ -14,6 +14,7 @@ export * from './middlewares/validate-request';
 
 export { default as jwtService } from './utils/jwt.service';
 export { default as log } from './utils/logger';
+export { default as logger } from './logs/logger';
 
 export * from './events/types/Role';
 export * from './events/queues-enum';

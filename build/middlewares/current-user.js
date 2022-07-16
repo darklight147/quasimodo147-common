@@ -16,7 +16,7 @@ exports.currentUser = void 0;
 const jwt_service_1 = __importDefault(require("../utils/jwt.service"));
 const currentUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const token = req.session.jwt;
-    req.currentUser = jwt_service_1.default.verify(token);
+    req.currentUser = yield jwt_service_1.default.verify(token);
     next();
 });
 exports.currentUser = currentUser;

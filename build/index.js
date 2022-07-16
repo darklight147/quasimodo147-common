@@ -17,7 +17,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.log = exports.jwtService = void 0;
+exports.logger = exports.log = exports.jwtService = void 0;
 __exportStar(require("./errors/bad-request-error"), exports);
 __exportStar(require("./errors/custom-error"), exports);
 __exportStar(require("./errors/forbidden-error"), exports);
@@ -32,6 +32,8 @@ var jwt_service_1 = require("./utils/jwt.service");
 Object.defineProperty(exports, "jwtService", { enumerable: true, get: function () { return __importDefault(jwt_service_1).default; } });
 var logger_1 = require("./utils/logger");
 Object.defineProperty(exports, "log", { enumerable: true, get: function () { return __importDefault(logger_1).default; } });
+var logger_2 = require("./logs/logger");
+Object.defineProperty(exports, "logger", { enumerable: true, get: function () { return __importDefault(logger_2).default; } });
 __exportStar(require("./events/types/Role"), exports);
 __exportStar(require("./events/queues-enum"), exports);
 __exportStar(require("./events/LogQueuePayload.interface"), exports);

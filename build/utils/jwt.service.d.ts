@@ -11,10 +11,12 @@ declare class JwtService {
     private options;
     private EXPIRE_REFRESH;
     constructor(options: jwt.SignOptions & jwt.VerifyOptions);
-    sign(payload: Payload): string;
-    verify(token: string): Payload | null;
-    signRefresh(payload: RefreshPayload): string;
-    verifyRefreshToken(token: string): RefreshPayload | null;
+    private asyncVerify;
+    private asyncSign;
+    sign(payload: Payload): Promise<string | null>;
+    verify(token: string): Promise<Payload | null>;
+    signRefresh(payload: RefreshPayload): Promise<string>;
+    verifyRefreshToken(token: string): Promise<RefreshPayload | null>;
     isTokenExpired(token: string): boolean;
 }
 declare const _default: JwtService;

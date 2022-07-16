@@ -1,7 +1,7 @@
 import { LogQueuePayload } from '../events/LogQueuePayload.interface';
 import { LogQueues } from '../events/queues-enum';
-import { Publisher } from './PublisherAbstract';
+import { QueuePublisher } from './QueuePublisherAbstract';
 
-export class LogPublisher extends Publisher<LogQueuePayload> {
+export class LogPublisher extends QueuePublisher<LogQueuePayload> {
 	queueName = LogQueues.LOG_INFO;
 }

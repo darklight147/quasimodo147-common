@@ -8,7 +8,7 @@ export const currentUser = async (
 ) => {
 	const token = req.session!.jwt;
 
-	req.currentUser = jwtService.verify(token);
+	req.currentUser = await jwtService.verify(token);
 
 	next();
 };
